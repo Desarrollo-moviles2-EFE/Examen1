@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import store from "./src/store/store"; // Importa el store de Redux
 import StackNavigator from "./src/components/navigation/StackNavigator";
-import favoritos from "./src/views/favoritos";
+import StackNavigatorFavoritos from "./src/components/navigation/StackNavigatorFavoritos";
 import About from "./src/views/about";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -35,7 +35,7 @@ export default function App() {
           })}
         >
           <Tab.Screen name="Ciudades" component={StackNavigator} />
-          <Tab.Screen name="favoritos" component={favoritos} />
+          <Tab.Screen name="favoritos" component={StackNavigatorFavoritos} />
           <Tab.Screen name="Acerca de" component={About} />
         </Tab.Navigator>
       </NavigationContainer>
