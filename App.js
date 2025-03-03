@@ -2,6 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import StackNavigator from "./src/components/navigation/StackNavigator";
+import favoritos from "./src/views/favoritos";
 import About from "./src/views/about";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -27,6 +28,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Ciudades" component={StackNavigator} />
+        <Tab.Screen name="favoritos" component={favoritos} />
         <Tab.Screen name="Acerca de" component={About} />
       </Tab.Navigator>
     </NavigationContainer>
