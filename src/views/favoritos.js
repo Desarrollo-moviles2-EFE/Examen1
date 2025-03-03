@@ -2,14 +2,19 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
+import styles from "../style/favoritosStyles";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState({});
   const navigation = useNavigation();
 
-  useEffect(() => {
-    loadFavorites();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      loadFavorites();
+    }, [])
+  );
 
   const loadFavorites = async () => {
     try {
@@ -51,23 +56,5 @@ const Favorites = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: "center", padding: 20, backgroundColor: "#fff" },
-  title: { fontSize: 22, fontWeight: "bold", marginBottom: 20 },
-  placeCard: {
-    padding: 15,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 8,
-    marginVertical: 5,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "100%",
-  },
-  placeName: { fontSize: 18, fontWeight: "bold" },
-  placeCategory: { fontSize: 14, color: "gray" },
-  removeButton: { fontSize: 24, color: "red" },
-});
 
 export default Favorites;
